@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Анна&Шик · Парикмахерская</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #fcf6f0;
+      color: #2d2a24;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #3e2c1b;
+    }
+    .logo span {
+      font-weight: 300;
+      color: #b17a5e;
+    }
+    .logo .ampersand {
+      font-weight: 300;
+      color: #b17a5e;
+      margin: 0 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-weight: 500;
+      color: #3e2c1b;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.2s;
+      font-size: 16px;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+    }
+    .nav-links a:hover {
+      color: #b17a5e;
+      border-bottom-color: #b17a5e;
+    }
+
+    .btn-outline {
+      border: 1.5px solid #b17a5e;
+      background: transparent;
+      padding: 8px 22px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #3e2c1b;
+      transition: all 0.2s;
+      cursor: default;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+    .btn-outline i {
+      margin-right: 6px;
+    }
+    .btn-outline:hover {
+      background: #b17a5e;
+      color: white;
+    }
+
+    /* HERO */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      padding: 50px 0 40px;
+    }
+
+    .hero-text {
+      flex: 1 1 300px;
+    }
+
+    .hero-text h1 {
+      font-size: 42px;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      color: #2d2a24;
+      margin-bottom: 8px;
+    }
+    .hero-text h1 strong {
+      font-weight: 600;
+      color: #b17a5e;
+    }
+    .hero-text h1 .ampersand {
+      font-weight: 300;
+      color: #b17a5e;
+    }
+
+    .hero-text .subhead {
+      font-size: 18px;
+      color: #5f4d38;
+      margin-bottom: 24px;
+      border-left: 4px solid #dcc7b6;
+      padding-left: 16px;
+      font-weight: 300;
+    }
+
+    .hero-text p {
+      font-size: 17px;
+      color: #3f3a33;
+      margin-bottom: 30px;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px 40px;
+      margin-bottom: 28px;
+      background: #f3ece5;
+      padding: 14px 22px;
+      border-radius: 60px;
+      max-width: 550px;
+      align-items: center;
+    }
+    .contact-info .item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      color: #2d2a24;
+    }
+    .contact-info .item i {
+      color: #b17a5e;
+      font-size: 18px;
+      width: 22px;
+      text-align: center;
+    }
+    .contact-info .item a {
+      color: #2d2a24;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-info .item a:hover {
+      color: #b17a5e;
+    }
+
+    .hero-image {
+      flex: 1 1 280px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-image .placeholder-icon {
+      font-size: 120px;
+      color: #dcc7b6;
+      background: #f2ece6;
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 1/1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 24px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+    }
+
+    .btn-primary {
+      background: #b17a5e;
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 14px 42px;
+      border-radius: 60px;
+      font-size: 18px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 6px 16px rgba(177, 122, 94, 0.3);
+      transition: 0.2s;
+      display: inline-block;
+      text-decoration: none;
+      cursor: default;
+    }
+    .btn-primary i {
+      margin-right: 8px;
+    }
+    .btn-primary:hover {
+      background: #9f6a4f;
+      transform: scale(1.02);
+      box-shadow: 0 10px 24px rgba(177, 122, 94, 0.4);
+    }
+
+    /* SERVICES — ТОЛЬКО СТРИЖКИ */
+    .services-section {
+      padding: 60px 0 50px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 300;
+      color: #2d2a24;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .section-title span {
+      font-weight: 600;
+      color: #b17a5e;
+    }
+    .section-title i {
+      color: #b17a5e;
+      font-size: 28px;
+    }
+
+    .services-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .service-card {
+      background: white;
+      flex: 1 1 200px;
+      min-width: 170px;
+      padding: 30px 20px 24px;
+      border-radius: 28px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+      transition: 0.25s ease;
+      border: 1px solid #f1e9e2;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 36px -8px rgba(177, 122, 94, 0.15);
+      border-color: #dcc7b6;
+    }
+
+    .service-card i {
+      font-size: 44px;
+      color: #b17a5e;
+      background: #f6efe9;
+      padding: 18px;
+      border-radius: 60px;
+      margin-bottom: 16px;
+      transition: 0.2s;
+    }
+    .service-card:hover i {
+      background: #b17a5e;
+      color: white;
+    }
+
+    .service-card h3 {
+      font-size: 22px;
+      font-weight: 500;
+      color: #2d2a24;
+      margin-bottom: 6px;
+    }
+    .service-card p {
+      color: #6b5d4e;
+      font-size: 15px;
+      font-weight: 300;
+    }
+
+    .service-card .price-tag {
+      display: inline-block;
+      margin-top: 12px;
+      background: #f3ece5;
+      padding: 4px 16px;
+      border-radius: 40px;
+      font-weight: 500;
+      color: #3e2c1b;
+      font-size: 14px;
+    }
+
+    /* FEATURES */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 24px;
+      background: #f3ece5;
+      padding: 38px 32px;
+      border-radius: 48px;
+      margin: 20px 0 10px;
+    }
+    .feature-item {
+      flex: 1 1 120px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 400;
+      color: #2d2a24;
+    }
+    .feature-item i {
+      font-size: 28px;
+      color: #b17a5e;
+      width: 44px;
+      text-align: center;
+    }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 40px;
+      padding: 32px 0 24px;
+      border-top: 1px solid #e4d9cf;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      color: #4d4238;
+    }
+    .footer .social i {
+      font-size: 22px;
+      margin-left: 18px;
+      color: #4d4238;
+      transition: 0.2s;
+      cursor: default;
+    }
+    .footer .social i:hover {
+      color: #b17a5e;
+    }
+    .footer small {
+      font-weight: 300;
+      letter-spacing: 0.3px;
+    }
+    .footer .footer-contacts {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+    }
+    .footer .footer-contacts i {
+      margin-right: 6px;
+      color: #b17a5e;
+    }
+
+    @media (max-width: 700px) {
+      .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 16px 24px;
+        justify-content: center;
+      }
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-text .subhead {
+        border-left: none;
+        padding-left: 0;
+        text-align: center;
+      }
+      .btn-primary {
+        width: 100%;
+        text-align: center;
+      }
+      .contact-info {
+        flex-direction: column;
+        align-items: center;
+        border-radius: 30px;
+        padding: 16px 20px;
+        max-width: 100%;
+        gap: 12px;
+      }
+      .features {
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 28px;
+      }
+      .footer {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+      .footer .social i {
+        margin: 0 10px;
+      }
+      .footer .footer-contacts {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .services-grid {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-text h1 {
+        font-size: 32px;
+      }
+      .section-title {
+        font-size: 26px;
+      }
+      .service-card {
+        flex: 1 1 140px;
+      }
+      .btn-outline {
+        font-size: 14px;
+        padding: 6px 16px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <header class="navbar">
+      <div class="logo">Анна<span class="ampersand">&</span>Шик</div>
+      <div class="nav-links">
+        <a href="#">Главная</a>
+        <a href="#services">Услуги</a>
+        <a href="#">О нас</a>
+        <a href="#">Контакты</a>
+      </div>
+      <div class="btn-outline"><i class="fas fa-phone-alt"></i> +7 (967) 122-98-89</div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Анна<span class="ampersand">&</span>Шик</h1>
+        <div class="subhead">Искусство стрижки и заботы о волосах</div>
+        <p>
+          В салоне «Анна&Шик» мы создаём идеальные стрижки, которые подчёркивают вашу индивидуальность. 
+          Наши мастера — настоящие художники, которые знают, как преобразить образ, сохраняя здоровье 
+          и красоту ваших волос. Доверьтесь профессионалам и насладитесь тёплой, уютной атмосферой, 
+          где каждая стрижка — это маленькое искусство.
+        </p>
+
+        <div class="contact-info">
+          <div class="item">
+            <i class="fas fa-phone-alt"></i>
+            <a href="tel:+79671229889">+7 (967) 122-98-89</a>
+          </div>
+          <div class="item">
+            <i class="fas fa-map-pin"></i>
+            <span>Первомайская ул., 33, Долгопрудный</span>
+          </div>
+        </div>
+
+        <a href="#" class="btn-primary"><i class="fas fa-calendar-check"></i> Записаться на стрижку</a>
+      </div>
+      <div class="hero-image">
+        <div class="placeholder-icon">
+          <i class="fas fa-cut"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES — ТОЛЬКО СТРИЖКИ -->
+    <section class="services-section" id="services">
+      <div class="section-title">
+        <i class="fas fa-scissors"></i>
+        <span>Наши</span> стрижки
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fas fa-cut"></i>
+          <h3>Женские стрижки</h3>
+          <p>Каскад, боб, пикси, лесенка</p>
+          <span class="price-tag">от 2500 ₽</span>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-cut"></i>
+          <h3>Мужские стрижки</h3>
+          <p>Классика, бокс, полубокс, андеркат</p>
+          <span class="price-tag">от 1800 ₽</span>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-cut"></i>
+          <h3>Детские стрижки</h3>
+          <p>Аккуратно и с вниманием к малышам</p>
+          <span class="price-tag">от 1200 ₽</span>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-arrows-rotate"></i>
+          <h3>Коррекция стрижки</h3>
+          <p>Освежим форму и длину</p>
+          <span class="price-tag">от 1500 ₽</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <div class="features">
+      <div class="feature-item"><i class="fas fa-scissors"></i> Мастера с опытом 10+ лет</div>
+      <div class="feature-item"><i class="fas fa-wine-glass"></i> Уютная атмосфера</div>
+      <div class="feature-item"><i class="fas fa-clock"></i> Удобное время записи</div>
+      <div class="feature-item"><i class="fas fa-star"></i> Индивидуальный подход</div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <small>© 2026 Анна&Шик · Парикмахерская</small>
+      <div class="footer-contacts">
+        <span><i class="fas fa-phone-alt"></i> +7 (967) 122-98-89</span>
+        <span><i class="fas fa-map-pin"></i> Первомайская ул., 33</span>
+      </div>
+      <div class="social">
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-telegram"></i>
+        <i class="fab fa-whatsapp"></i>
+        <i class="fab fa-youtube"></i>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
+```
